@@ -1,0 +1,337 @@
+.about_us_page {
+  width: 100vw;
+  min-height: 100vh; /* Changed height to min-height to accommodate content */
+  background: linear-gradient(135deg, #242424, #1a1a1a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-family: "Montserrat", sans-serif; /* Added a more modern font */
+  padding: 40px 20px; /* Increased padding */
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden; /* To handle potential overflows from absolute elements */
+}
+
+/* Added a subtle background pattern or element */
+.about_us_page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.title_bg_small {
+  font-size: 18px; /* Slightly larger */
+  font-weight: 700;
+  background: linear-gradient(
+    45deg,
+    #1900ff,
+    #00d4ff
+  ); /* Gradient background for the title */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 8px 25px; /* Increased padding */
+  text-transform: uppercase;
+  margin-bottom: 15px; /* Increased margin */
+  border-radius: 5px; /* Slightly rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3); /* Soft shadow */
+  letter-spacing: 1px;
+  border: 1px solid rgba(0, 212, 255, 0.5); /* Subtle border */
+}
+
+.welcome_text {
+  text-align: center;
+  margin-bottom: 30px; /* Increased margin */
+  font-size: 2em; /* Larger font size */
+  font-weight: 300; /* Lighter weight for a modern look */
+  line-height: 1.4;
+  max-width: 800px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+}
+
+.social_buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  gap: 15px; /* Increased gap */
+  margin-bottom: 50px; /* Increased margin */
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 28px; /* Increased padding */
+  border-radius: 30px; /* More pronounced rounded corners */
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600; /* Bolder text */
+  transition: all 0.4s ease; /* Smoother transition for all properties */
+  position: relative;
+  overflow: hidden; /* For hover effects */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  letter-spacing: 0.5px;
+  border: none; /* Removed default border */
+  display: flex; /* To vertically align text if icons were added */
+  align-items: center;
+  justify-content: center;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1); /* Subtle white overlay */
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.btn:hover::before {
+  left: 0;
+}
+
+.btn_github {
+  background: linear-gradient(45deg, #080e1b, #2d4373); /* Gradient */
+}
+.btn_github:hover {
+  transform: translateY(-5px) scale(1.05); /* Lift and slightly enlarge */
+  box-shadow: 0 8px 25px rgba(45, 67, 115, 0.5); /* Enhanced shadow on hover */
+}
+
+.btn_linkedin {
+  background: linear-gradient(
+    45deg,
+    #0077b5,
+    #1da1f2
+  ); /* LinkedIn blue gradient */
+}
+.btn_linkedin:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(29, 161, 242, 0.5);
+}
+
+.btn_repo {
+  background: linear-gradient(
+    45deg,
+    #e1306c,
+    #c72f5b
+  ); /* Instagram-like gradient */
+}
+.btn_repo:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(225, 48, 108, 0.5);
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 25px;
+  color: #eee;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Карусель */
+.carousel {
+  position: relative;
+  max-width: 900px; /* Limiting carousel width */
+  width: 100%;
+  margin: 0 auto;
+  perspective: 1000px; /* For 3D effects if needed */
+}
+
+.carousel input[type="radio"] {
+  display: none;
+}
+
+.slides {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: auto; /* Allow height to adjust */
+  justify-content: center;
+  gap: 20px;
+  position: relative; /* Needed for slide positioning */
+  padding-bottom: 20px; /* Space for indicators */
+}
+
+.slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Increased gap */
+  background: rgba(255, 255, 255, 0.05); /* Translucent background */
+  border-radius: 15px; /* More rounded */
+  padding: 25px; /* Increased padding */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.6s ease-in-out; /* Smooth transition for slide changes */
+  width: 100%; /* Take full width within slides container */
+  max-width: 450px; /* Max width for individual slide */
+  text-align: center;
+}
+
+.slide img {
+  max-width: 100%; /* Ensure images are responsive */
+  height: 250px; /* Fixed height for consistent look */
+  object-fit: cover; /* Cover the area */
+  border-radius: 12px; /* Nicely rounded corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Shadow for images */
+  border: 3px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  transition: transform 0.3s ease;
+}
+
+.slide img:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.slide_content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slide_year {
+  font-weight: 700; /* Bolder */
+  color: #ff4d4d; /* More vibrant red */
+  font-size: 1.1em;
+  letter-spacing: 1px;
+}
+
+.slide_content h4 {
+  font-size: 1.5em; /* Larger heading */
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.slide_content p:last-child {
+  font-size: 0.95em;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Show selected slide */
+#year_2006:checked ~ .slides .slide_2006,
+#year_2012:checked ~ .slides .slide_2012,
+#year_2023:checked ~ .slides .slide_2023 {
+  display: flex;
+  animation: fadeInSlide 0.8s ease-out; /* Fade in animation */
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel_indicators {
+  display: flex;
+  gap: 12px; /* Increased gap */
+  margin-top: 30px; /* Increased margin */
+  justify-content: center;
+}
+
+.carousel_indicators label {
+  cursor: pointer;
+  padding: 8px 18px; /* Increased padding */
+  background: rgba(255, 255, 255, 0.15); /* Translucent background */
+  border-radius: 20px; /* More rounded */
+  color: #ddd;
+  font-weight: 600; /* Bolder */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  user-select: none; /* Prevent text selection */
+}
+
+.carousel_indicators label:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Active indicator style */
+#year_2006:checked ~ .slides ~ .carousel_indicators label[for="year_2006"],
+#year_2012:checked ~ .slides ~ .carousel_indicators label[for="year_2012"],
+#year_2023:checked ~ .slides ~ .carousel_indicators label[for="year_2023"] {
+  background: linear-gradient(
+    45deg,
+    #e80000,
+    #ff4d4d
+  ); /* Gradient for active */
+  color: #fff;
+  transform: translateY(-3px) scale(1.05); /* Lift and enlarge */
+  box-shadow: 0 5px 15px rgba(255, 77, 77, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcome_text {
+    font-size: 1.6em;
+  }
+  .social_buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .slide {
+    padding: 20px;
+  }
+  .slide img {
+    height: 200px;
+  }
+  .slide_content h4 {
+    font-size: 1.3em;
+  }
+  .carousel_indicators {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title_bg_small {
+    font-size: 16px;
+    padding: 6px 20px;
+  }
+  .welcome_text {
+    font-size: 1.3em;
+  }
+  .btn {
+    padding: 10px 22px;
+    font-size: 0.9em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  .slide {
+    padding: 15px;
+    max-width: 90%;
+  }
+  .slide img {
+    height: 180px;
+  }
+  .slide_content h4 {
+    font-size: 1.2em;
+  }
+  .carousel_indicators label {
+    padding: 6px 14px;
+    font-size: 0.9em;
+  }
+}
